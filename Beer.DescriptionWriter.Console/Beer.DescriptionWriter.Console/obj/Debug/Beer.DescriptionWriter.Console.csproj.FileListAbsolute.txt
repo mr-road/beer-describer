@@ -1,0 +1,12 @@
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\bin\Debug\Beer.DescriptionWriter.Console.exe.config
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\bin\Debug\TestBeerFiles\HighTempBeer1.txt
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\bin\Debug\TestBeerFiles\BasicBeerUSGal.txt
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\bin\Debug\TestBeerFiles\BasicBeerGal.txt
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\bin\Debug\TestBeerFiles\BasicBeer1.txt
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\bin\Debug\Beer.DescriptionWriter.Console.exe
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\bin\Debug\Beer.DescriptionWriter.Console.pdb
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\bin\Debug\Beer.Ingredients.Lookup.dll
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\bin\Debug\Beer.Ingredients.Lookup.pdb
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\obj\Debug\Beer.DescriptionWriter.Console.csprojResolveAssemblyReference.cache
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\obj\Debug\Beer.DescriptionWriter.Console.exe
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.DescriptionWriter.Console\obj\Debug\Beer.DescriptionWriter.Console.pdb

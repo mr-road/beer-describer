@@ -1,0 +1,5 @@
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.Ingredients.Lookup\bin\Debug\Beer.Ingredients.Lookup.dll
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.Ingredients.Lookup\bin\Debug\Beer.Ingredients.Lookup.pdb
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.Ingredients.Lookup\obj\Debug\Beer.Ingredients.Lookup.dll
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.Ingredients.Lookup\obj\Debug\Beer.Ingredients.Lookup.pdb
+C:\dev\beer-describer\Beer.DescriptionWriter.Console\Beer.Ingredients.Lookup\obj\Debug\Beer.Ingredients.Lookup.csprojResolveAssemblyReference.cache
