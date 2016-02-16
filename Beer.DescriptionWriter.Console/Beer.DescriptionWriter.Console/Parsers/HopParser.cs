@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -11,19 +12,33 @@ namespace Beer.DescriptionWriter.Console.Parsers
     {
         private static readonly Regex IngredientRegex = new Regex(@"([\d+\.]+\w+)[\t\s]+([\d+\w+\.\s+\(\)]+)");
 
-        public static string Parse(List<string> recipe)
+        public static string Parse(List<string> recipe, decimal @decimal)
         {
             HopAdditions hopAdditions = new HopAdditions();
             decimal totalAlphaAcids = 0.0m;
             foreach (var line in recipe) {
                 MatchCollection m = IngredientRegex.Matches(line);
                 if (m.Count > 0) {
-                    if (line.ToLower().Contains("min")) {
-                        Hop hop = Hops.LookupHopByName(m[0].Groups[2].Value);
+                    if (line.ToLower().Contains("min"))
+                    {
+                        var details = m[0].Groups[2].Value.Split('\t');
+                        if (details.Length == 1)
+                        {
+                            details = m[0].Groups[2].Value.Split(' ');
+                        }
+
+                        Hop hop = Hops.LookupHopByName(details[0]);
 
                         HopAddition ha = new HopAddition(hop);
                         ha.Quantity = MassCalculator.ParseMassToKg(m[0].Groups[1].Value);
-                        ha.TimeOfAddition = 1;
+                        for (int i = 1; i < details.Length; i++ )
+                        {
+                            if (details[i].Length > 3)
+                            {
+                                ha.TimeOfAddition = Convert.ToInt32(details[i].Replace("min", ""));
+                                break;
+                            }
+                        }
                         totalAlphaAcids += ha.Quantity * ha.Hop.HopAcids.PercentageAlphaAcids;//ignoring utilization atm
                         hopAdditions.list.Add(ha);
                     }
@@ -35,9 +50,88 @@ namespace Beer.DescriptionWriter.Console.Parsers
                 ha.PercentageOfHopOils = (ha.Quantity / totalAlphaAcids) * 100; //just plain wrong, but hey :)
             }
 
-            return hopAdditions.ToString();
+            return HopDescriber.Describe(hopAdditions);
         }
     }
+
+    internal class HopDescriber
+    {
+        public static string Describe(HopAdditions hopAdditions)
+        {
+            bool bittering = false;
+            bool flavour = false;
+            bool aroma = false;
+
+            string BitternessDescription = "There is a base bitterness with hints of ";
+            string FlavourDescription = "With flavours of ";
+            string AromaDescription = "Has aromas of ";
+
+            foreach (var hopAddition in hopAdditions.list)
+            {
+                if (hopAddition.TimeOfAddition >= 45)
+                {
+                    if (bittering)
+                    {
+                        BitternessDescription += ", ";
+                    }
+                    BitternessDescription += String.Join( ", ", hopAddition.Hop.HopFlavours.Select(x => x.flavourDescription));
+                    
+                    bittering = true;
+                }
+
+                if (hopAddition.TimeOfAddition < 45 && hopAddition.TimeOfAddition > 10 )
+                {
+                      if (bittering)
+                    {
+                        FlavourDescription += ", ";
+                    }
+                    FlavourDescription += String.Join( ", ", hopAddition.Hop.HopFlavours.Select(x => x.flavourDescription));
+                   
+                    flavour = true;
+                }
+
+                if (hopAddition.TimeOfAddition <= 10 )
+                {  if (aroma)
+                    {
+                        AromaDescription += ", ";
+                    }
+                    AromaDescription += String.Join( ", " , hopAddition.Hop.HopFlavours.Select(x => x.flavourDescription));
+                    aroma = true;
+                }
+            }
+
+
+
+            string desc = "";
+            if (bittering)
+            {
+                desc += ReplaceLastOccurrence(BitternessDescription, ", ", " and ") + ". ";
+            }
+            if (flavour)
+            {
+                desc += ReplaceLastOccurrence(FlavourDescription, ", ", " and ") + ". ";
+            }
+            if (aroma)
+            {
+                desc += ReplaceLastOccurrence(AromaDescription, ", ", " and ") + ". ";
+            }
+
+            return desc;
+        }
+
+        public static string ReplaceLastOccurrence(string source, string find, string replace)
+        {
+            int place = source.LastIndexOf(find, StringComparison.Ordinal);
+
+            if(place == -1)
+                return string.Empty;
+
+            string result = source.Remove(place, find.Length).Insert(place, replace);
+            return result;
+        }
+    }
+
+    
 
     /*
     Is it low coholumene if so plesant bitterness

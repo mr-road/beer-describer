@@ -1,12 +1,9 @@
-namespace Beer.Ingredients.Lookup
-{
-    internal class Lime : ISpecificFlavour
-    {
-        public string flavourDescription { get; set; }
+using System.Collections.Generic;
 
-        public Lime()
-        {
-            flavourDescription = "Lime";
-        }
+namespace Beer.Ingredients.Lookup.Flavours
+{
+    internal class Lime : Flavour
+    {
+        public Lime(List<string> adjectives = null) : base(adjectives){}
     }
 }

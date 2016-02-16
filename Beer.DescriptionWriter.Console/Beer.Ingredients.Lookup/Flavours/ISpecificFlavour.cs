@@ -1,7 +1,6 @@
-﻿namespace Beer.Ingredients.Lookup
+﻿namespace Beer.Ingredients.Lookup.Flavours
 {
-    interface ISpecificFlavour : IFlavour
-    {
-         
-    }
+    
+
+    
 }

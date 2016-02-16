@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace Beer.Ingredients.Lookup
+namespace Beer.Ingredients.Lookup.Flavours
 {
     interface ISubGroupFlavour : IFlavour
     {
-        IList<ISpecificFlavour> flavours { get; set; }
+        IList<Flavour> flavours { get; set; }
     }
 }

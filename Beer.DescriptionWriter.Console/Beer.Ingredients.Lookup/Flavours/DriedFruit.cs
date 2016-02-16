@@ -1,16 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-namespace Beer.Ingredients.Lookup
+namespace Beer.Ingredients.Lookup.Flavours
 {
     internal class DriedFruit : ISubGroupFlavour
     {
         public string flavourDescription { get; set; }
-        public IList<ISpecificFlavour> flavours { get; set; }
+        public List<string> flavourAdjectives { get; set; }
+        public IList<Flavour> flavours { get; set; }
+
+        IList<Flavour> ISubGroupFlavour.flavours
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         public DriedFruit()
         {
             flavourDescription = "Dried Fruits";
-            flavours = new List<ISpecificFlavour> {new Lemon(), new Grapefruit(), new Orange(), new Lime(), new Mandarin()};
+            flavours = new List<Flavour> {new Lemon(), new Grapefruit(), new Orange(), new Lime(), new Mandarin()};
         }
     }
 }

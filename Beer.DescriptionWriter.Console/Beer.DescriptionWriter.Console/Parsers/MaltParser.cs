@@ -64,17 +64,13 @@ namespace Beer.DescriptionWriter.Console.Parsers
         public static decimal CalculateSG(Fermentables fermentables, decimal volumeInGallons)
         {
             var assumedEfficency = 0.75m;
-            decimal SG = 0.00m;
             decimal points = 0m;
             foreach (var malt in fermentables.list)
             {
-
                 points += ((malt.Quantity * 2.2m) * ((malt.PotentialSg - 1.0m) * 1000)/volumeInGallons );
             }
 
             return 1.0m + (points/1000m)*assumedEfficency;
         }
     }
-
-
 }

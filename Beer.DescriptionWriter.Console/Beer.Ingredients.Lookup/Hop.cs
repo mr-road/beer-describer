@@ -15,6 +15,11 @@ namespace Beer.Ingredients.Lookup
         public  HopAcids HopAcids  { get; private set; }
         public  HopOils HopOils  { get; private set; }
 
+        public Hop(string name)
+        {
+             Name = name;
+        }
+
         public Hop(string name, HopAcids hopAcids, IList<IFlavour> hopFlavours, decimal storage = 0.00m, string possibleSubstitutions = "", HopOils hopOils = null)
         {
             Name = name;

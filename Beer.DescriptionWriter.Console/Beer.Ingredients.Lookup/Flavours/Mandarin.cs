@@ -1,12 +1,10 @@
-﻿namespace Beer.Ingredients.Lookup
-{
-    internal class Mandarin : ISpecificFlavour
-    {
-        public string flavourDescription    { get; set; }
+﻿using System.Collections.Generic;
 
-        public Mandarin()
-        {
-            flavourDescription = "Mandarin";
-        }
+namespace Beer.Ingredients.Lookup.Flavours
+{
+    internal class Mandarin : Flavour
+    {
+        public Mandarin(Hops.Overtone overtone) : base(overtone) {}
+        public Mandarin(List<string> adjectives = null) : base(adjectives){}
     }
 }

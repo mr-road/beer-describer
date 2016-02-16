@@ -40,10 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Flavours\BlackCurrant.cs" />
+    <Compile Include="Flavours\Citrus.cs" />
+    <Compile Include="Flavours\Earthy.cs" />
+    <Compile Include="Flavours\Flavour.cs" />
+    <Compile Include="Flavours\BerryFlavours.cs" />
+    <Compile Include="Flavours\CitrusFlavours.cs" />
+    <Compile Include="Flavours\Orange.cs" />
     <Compile Include="Flavours\DriedFruit.cs" />
     <Compile Include="Fermentable.cs" />
     <Compile Include="Flavours\FruityFlavours.cs" />
+    <Compile Include="Flavours\Grapefruit.cs" />
+    <Compile Include="Flavours\Floral.cs" />
+    <Compile Include="Flavours\Fruity.cs" />
+    <Compile Include="Flavours\Herbal.cs" />
     <Compile Include="Hop.cs" />
     <Compile Include="HopAcids.cs" />
     <Compile Include="HopOils.cs" />
@@ -53,9 +63,19 @@
     <Compile Include="Flavours\ISpecificFlavour.cs" />
     <Compile Include="Flavours\ISubGroupFlavour.cs" />
     <Compile Include="Flavours\Lime.cs" />
+    <Compile Include="Flavours\Lemon.cs" />
+    <Compile Include="Flavours\LemonGrass.cs" />
     <Compile Include="Malts.cs" />
     <Compile Include="Flavours\Mandarin.cs" />
+    <Compile Include="Flavours\PipFruit.cs" />
+    <Compile Include="Flavours\Mint.cs" />
+    <Compile Include="Flavours\PassionFruit.cs" />
+    <Compile Include="Flavours\Pine.cs" />
+    <Compile Include="Flavours\Pineapple.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Flavours\TropicalFruit.cs" />
+    <Compile Include="Flavours\Spicy.cs" />
+    <Compile Include="Flavours\Zesty.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

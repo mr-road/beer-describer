@@ -10,6 +10,7 @@ namespace Beer.DescriptionWriter.Console.Parsers
         private decimal _volumeLiters;
         private string _mashDescription;
         private string _maltDescription;
+        private string _hopDescription;
 
         public RecipeParser(List<string> recipe)
         {
@@ -18,6 +19,7 @@ namespace Beer.DescriptionWriter.Console.Parsers
             ParseBatchSize();
             ParseMashTemp();
             ParseMalts();
+            ParseHops();
         }
 
         private void ParseMalts()
@@ -25,6 +27,10 @@ namespace Beer.DescriptionWriter.Console.Parsers
             _maltDescription = MaltParser.Parse(_recipe, _volumeLiters/4.454m);
         }
 
+         private void ParseHops()
+        {
+            _hopDescription = HopParser.Parse(_recipe, _volumeLiters/4.454m);
+        }
 
         public void PrintDescription()
         {
@@ -32,6 +38,7 @@ namespace Beer.DescriptionWriter.Console.Parsers
            // System.Console.WriteLine("Vol (l): " + _volumeLiters);
             System.Console.Write("Description: " + _maltDescription + " ");
             System.Console.WriteLine( _mashDescription);
+            System.Console.WriteLine( _hopDescription);
         }
 
         private void ParseName()

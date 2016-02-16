@@ -6,6 +6,10 @@ namespace Beer.Ingredients.Lookup
 {
     public class Malts
     {
+        //http://dieseldrafts.com/spreadsheet/frameset.html?Formulas.html
+        //https://studentofbeer.wordpress.com/tag/brewhouse-calculations/
+        //http://homebrewmanual.com/home-brewing-calculations/
+
         public static Fermentable LookupFermentableByName(string name)
         {
             var fermentables = Fermentables.Where(x => x.Name == name);

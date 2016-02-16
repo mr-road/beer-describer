@@ -2,6 +2,7 @@
 {
     class ColourDescriber
     {
+        //http://www.beercolor.com/2008bjcpsrmbeercolordescrit.htm
         public static string DescribeColour(decimal SRM)
         {
             if (SRM > 40)
